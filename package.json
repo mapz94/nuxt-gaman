@@ -11,12 +11,22 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
+    "@blokwise/dynamic": "^1.2.0",
+    "@mdi/font": "^5.9.55",
+    "@pnodev/nuxt-directus": "^0.2.0",
+    "axios": "^0.21.1",
+    "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "hex-to-rgba": "^2.0.1",
+    "is-string-and-not-blank": "0.0.2",
+    "nuxt": "^2.14.12",
+    "wpapi": "^1.2.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/router": "^1.5.1",
+    "@nuxtjs/router-extras": "^1.1.1",
     "@nuxtjs/vuetify": "^1.11.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.18.0",

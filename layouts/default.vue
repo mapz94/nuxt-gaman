@@ -9,17 +9,14 @@
     >
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
+          v-for="page in pages"
+          :key="page.id"
+          :to="page.slug"
           router
           exact
         >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title v-text="page.title.rendered" />
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -42,8 +39,14 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <nuxt />
+      <v-container class="pa-0 fill-height" fluid>
+        <v-row class="fill-height">
+          <v-col class="fill-height">
+            <v-card flat height="100%">
+              <nuxt />
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
@@ -63,6 +66,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -86,6 +90,9 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js',
     }
+  },
+  computed: {
+    ...mapState(['pages']),
   },
 }
 </script>
