@@ -1,11 +1,12 @@
 <template>
-  <v-btn color="primary">
+  <h1 class="title">
     <slot />
-  </v-btn>
+  </h1>
 </template>
 
 <script>
-export default {}
+export default {
+}
 </script>
 
 <style></style>

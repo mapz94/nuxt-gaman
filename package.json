@@ -20,6 +20,7 @@
     "hex-to-rgba": "^2.0.1",
     "is-string-and-not-blank": "0.0.2",
     "nuxt": "^2.14.12",
+    "vuetify": "^2.4.7",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {

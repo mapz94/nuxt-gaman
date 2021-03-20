@@ -17,7 +17,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~plugins/vuetify.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: ['~/components', '~/components/Posts', '~/components/Elements'],
@@ -27,7 +27,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    // '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -39,7 +39,6 @@ export default {
   directus: {
     apiUrl: 'https://directus.senlie.cl',
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
