@@ -15,19 +15,44 @@ export default {
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
+  vuetify: {
+    theme: {
+      isDark: false,
+      themes: {
+        dark: {
+          primary: '#66D8C4',
+          accent: '#D9C0EC',
+          secondary: '#8E73AD',
+          info: '#26A69A',
+          warning: '#FFC107',
+          error: '#DD2C00',
+          success: '#00E676',
+        },
+        light: {
+          primary: '#66D8C4',
+          accent: '#D9C0EC',
+          secondary: '#8E73AD',
+          info: '#26A69A',
+          warning: '#FFC107',
+          error: '#DD2C00',
+          success: '#00E676',
+        },
+      },
+    },
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: ['~/components', '~/components/Posts', '~/components/Elements'],
+  components: ['~/components', '~/components/typography'],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    // '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

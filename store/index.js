@@ -4,36 +4,11 @@ export const state = () => ({
   pages: null,
   posts: null,
   products: null,
-  theme: {
-    isDark: false,
-    themes: {
-      dark: {
-        primary: '#66D8C4',
-        accent: '#D9C0EC',
-        secondary: '#8E73AD',
-        info: '#26A69A',
-        warning: '#FFC107',
-        error: '#DD2C00',
-        success: '#00E676',
-      },
-      light: {
-        primary: '#66D8C4',
-        accent: '#D9C0EC',
-        secondary: '#8E73AD',
-        info: '#26A69A',
-        warning: '#FFC107',
-        error: '#DD2C00',
-        success: '#00E676',
-      },
-    },
-  },
+  theme: { currentTheme: {} },
 })
 export const getters = {
   getHome: (state) => {
     return state.pages.find((page) => page.title.rendered === 'Home')
-  },
-  getTheme: (state) => {
-    return state.theme
   },
 }
 
@@ -52,7 +27,7 @@ export const mutations = {
     })
   },
   SET_THEME(state, theme) {
-    state.theme = JSON.parse(theme.vuetify)
+    state.theme = theme
   },
   SET_ITEM(state, { item = '', data = {} }) {
     state[item] = data
@@ -71,13 +46,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ dispatch, commit }, nuxtCtx) {
-    await dispatch('getPages')
-    await dispatch('getPosts')
-    await dispatch('getTheme', nuxtCtx)
-    await dispatch('getItems', { context: nuxtCtx, item: 'pages' })
-    // commit('SET_VUETIFY_THEME', nuxtCtx)
-  },
+  nuxtServerInit({ dispatch, commit }, nuxtCtx) {},
   async getPages({ commit }) {
     commit('SET_PAGES', await wp.pages().embed())
   },

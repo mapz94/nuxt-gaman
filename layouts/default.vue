@@ -39,12 +39,10 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container class="pa-0 fill-height" fluid>
-        <v-row class="fill-height">
-          <v-col class="fill-height">
-            <v-card flat height="100%">
-              <nuxt />
-            </v-card>
+      <v-container class="px-0 my-4" fluid>
+        <v-row justify="center">
+          <v-col cols="12" sm="10">
+            <nuxt />
           </v-col>
         </v-row>
       </v-container>
@@ -60,7 +58,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>Gaman Digital &copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
