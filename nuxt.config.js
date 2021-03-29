@@ -8,7 +8,11 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui',
+      },
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -20,7 +24,7 @@ export default {
       isDark: false,
       themes: {
         dark: {
-          primary: '#66D8C4',
+          primary: '#ffffff',
           accent: '#D9C0EC',
           secondary: '#8E73AD',
           info: '#26A69A',
@@ -29,7 +33,7 @@ export default {
           success: '#00E676',
         },
         light: {
-          primary: '#66D8C4',
+          primary: '#ffffff',
           accent: '#D9C0EC',
           secondary: '#8E73AD',
           info: '#26A69A',

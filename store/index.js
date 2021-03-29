@@ -1,16 +1,8 @@
-import wp from '@/plugins/wordpress'
-
 export const state = () => ({
-  pages: null,
-  posts: null,
+  height: 400,
   products: null,
-  theme: { currentTheme: {} },
 })
-export const getters = {
-  getHome: (state) => {
-    return state.pages.find((page) => page.title.rendered === 'Home')
-  },
-}
+export const getters = {}
 
 export const mutations = {
   SET_PAGES(state, pages) {
@@ -44,18 +36,12 @@ export const mutations = {
     }
   },
 }
-
+const items = ['appbar', 'categories', 'tags']
 export const actions = {
-  nuxtServerInit({ dispatch, commit }, nuxtCtx) {},
-  async getPages({ commit }) {
-    commit('SET_PAGES', await wp.pages().embed())
-  },
-  async getPosts({ commit }) {
-    commit('SET_POSTS', await wp.posts().embed())
-  },
-  async getTheme({ commit }, context) {
-    const theme = await context.$directus.items('template_theme').read()
-    commit('SET_THEME', theme.data)
+  async nuxtServerInit({ dispatch, commit }, nuxtCtx) {
+    for (const item of items) {
+      await dispatch('getItems', { context: nuxtCtx, item })
+    }
   },
   async getItems({ commit }, { context, item, q = [], props = {} }) {
     let data = null
@@ -63,7 +49,7 @@ export const actions = {
       data = await context.$directus.items(item).read(q, props)
       commit('PUSH_ITEM', { item, data: data.data })
     } else {
-      data = await context.$directus.items(item).read()
+      data = await context.$directus.items(item).read(props)
       commit('SET_ITEM', { item, data: data.data })
     }
   },
